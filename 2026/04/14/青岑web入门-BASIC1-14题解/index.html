@@ -1,0 +1,917 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/%E6%B2%89%E8%BF%B7%E6%90%AC%E7%A0%96%E4%B8%AD.svg">
+  <link rel="icon" href="/img/%E6%B2%89%E8%BF%B7%E6%90%AC%E7%A0%96%E4%B8%AD.svg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="放飞自我">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="WebWeb由html+css+js搭建而成，通过浏览器访问该网站。其中的步骤是以下图片展示！  简单的理解，当用户输入url的IP地址，无需走DNS直接浏览器和目标服务器建立连接，网站内容并响应给用户。而输入的url是域名，先查看用户主机是否有目标服务器缓存、浏览器缓存或hosts，如有直接建立目标服务器，没有就走DNS【域名解析系统】，递归查询等目标服务器的IP，响应回浏览器并和目标服务器建立">
+<meta property="og:type" content="article">
+<meta property="og:title" content="青岑web入门-BASIC1-14题解">
+<meta property="og:url" content="http://example.com/2026/04/14/%E9%9D%92%E5%B2%91web%E5%85%A5%E9%97%A8-BASIC1-14%E9%A2%98%E8%A7%A3/index.html">
+<meta property="og:site_name" content="放飞自我的小站">
+<meta property="og:description" content="WebWeb由html+css+js搭建而成，通过浏览器访问该网站。其中的步骤是以下图片展示！  简单的理解，当用户输入url的IP地址，无需走DNS直接浏览器和目标服务器建立连接，网站内容并响应给用户。而输入的url是域名，先查看用户主机是否有目标服务器缓存、浏览器缓存或hosts，如有直接建立目标服务器，没有就走DNS【域名解析系统】，递归查询等目标服务器的IP，响应回浏览器并和目标服务器建立">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/default.png">
+<meta property="article:published_time" content="2026-04-14T11:29:33.000Z">
+<meta property="article:modified_time" content="2026-04-15T13:41:04.274Z">
+<meta property="article:author" content="放飞自我">
+<meta property="article:tag" content="CTF">
+<meta property="article:tag" content="Web">
+<meta property="article:tag" content="入门">
+<meta property="article:tag" content="题解">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/default.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>青岑web入门-BASIC1-14题解 - 放飞自我的小站</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>放飞自我</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>归档</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="青岑web入门-BASIC1-14题解"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-04-14 19:29" pubdate>
+          2026年4月14日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          42 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">青岑web入门-BASIC1-14题解</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><p>Web由<strong>html+css+js</strong>搭建而成，通过浏览器访问该网站。其中的步骤是以下图片展示！</p>
+<p><img src="/img/2026-qingcen-web1.png" srcset="/img/loading.gif" lazyload></p>
+<p>简单的理解，当用户输入<strong>url的IP地址</strong>，无需走DNS直接浏览器和目标服务器<strong>建立连接</strong>，网站内容并响应给用户。而输入的url是<strong>域名</strong>，先查看用户主机是否有<strong>目标服务器缓存、浏览器缓存或hosts</strong>，如有直接建立目标服务器，没有就走DNS【域名解析系统】，递归查询等目标服务器的IP，响应回浏览器并和目标服务器建立连接。</p>
+<h2 id="BASIC-1题解"><a href="#BASIC-1题解" class="headerlink" title="BASIC-1题解"></a>BASIC-1题解</h2><p><img src="/img/2026-qingcen-web2.png" srcset="/img/loading.gif" lazyload><br>该网站被禁用了F12以及快捷键，那么我们可以有其他办法来查找源代码是否存在flag。</p>
+<p><img src="/img/2026-qingcen-web3.png" srcset="/img/loading.gif" lazyload><br>在地址栏左边加上:<strong>view-source:&#x2F;&#x2F; + url</strong>访问后是源代码网页。也可以通过<strong>burp抓包、在线工具获取</strong>响应后的源代码！</p>
+<p><img src="/img/2026-qingcen-web4.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/2026-qingcen-web5.png" srcset="/img/loading.gif" lazyload><br>获取到了网页中源代码后，在网页源代码中搜索查找<strong>flag</strong>。<br><img src="/img/2026-qingcen-web6.png" srcset="/img/loading.gif" lazyload></p>
+<p>flag是base64编码，可以通过burp自带的编码工具或者在线工具解码。<br><img src="/img/2026-qingcen-web7.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="BASIC-2题解"><a href="#BASIC-2题解" class="headerlink" title="BASIC-2题解"></a>BASIC-2题解</h2><p><img src="/img/2026-qingcen-web8.png" srcset="/img/loading.gif" lazyload><br>图中是一个反馈区，可以填写内容并反馈给对方，那么抓包一下是否存在参数。<br><img src="/img/2026-qingcen-web9.png" srcset="/img/loading.gif" lazyload><br>发现是POST请求，参数大致理解，包含is_admin、nickname、contact、content，注重的是is_admin&#x3D;0，如果改为1对方服务器是否能接收到我们的参数。<br><img src="/img/2026-qingcen-web10.png" srcset="/img/loading.gif" lazyload><br>哎！可以，那么右边响应的数据中<strong>flag</strong>找到了，那么等于1代表是admin用户，0代表普通用户。</p>
+<h2 id="BASIC-3题解"><a href="#BASIC-3题解" class="headerlink" title="BASIC-3题解"></a>BASIC-3题解</h2><p><img src="/img/2026-qingcen-web11.png" srcset="/img/loading.gif" lazyload><br>网页中需要正确密码才能进入后台，那么随便输入一个密码是否存在限制。</p>
+<p><img src="/img/2026-qingcen-web12.png" srcset="/img/loading.gif" lazyload><br>存在限制，直接被锁定60分钟，那么看一下是前端js还是后端限制。</p>
+<p><img src="/img/2026-qingcen-web13.png" srcset="/img/loading.gif" lazyload><br>可以通过F12或右击查看源代码，发现包含js脚本，这个脚本就是来判断密码是否正确，并锁定60分钟后才能继续输入密码。</p>
+<p><img src="/img/2026-qingcen-web14.png" srcset="/img/loading.gif" lazyload><br>发现head中，有一个key.js，有点可疑点击一下，打开快捷键Ctrl+u查看源代码找到key.js点击。</p>
+<p><img src="/img/2026-qingcen-web15.png" srcset="/img/loading.gif" lazyload><br>这是一个jsfuck加密的数据，那么可以通过控制台直接输出回正常数据</p>
+<p><img src="/img/2026-qingcen-web16.png" srcset="/img/loading.gif" lazyload><br>复制引号里面的回车，得到正常数据，访问密码就得到了。</p>
+<p><img src="/img/2026-qingcen-web17.png" srcset="/img/loading.gif" lazyload><br>查看到里面资料flag。</p>
+<h2 id="BASIC-4题解"><a href="#BASIC-4题解" class="headerlink" title="BASIC-4题解"></a>BASIC-4题解</h2><p><img src="/img/2026-qingcen-web18.png" srcset="/img/loading.gif" lazyload><br>页面中需要邮件或验证码才能受邀请，那么查看源代码里有什么。</p>
+<p><img src="/img/2026-qingcen-web19.png" srcset="/img/loading.gif" lazyload><br>发现有一个main.js文件，点击查看里面内容。</p>
+<p><img src="/img/2026-qingcen-web20.png" srcset="/img/loading.gif" lazyload><br>这是一个JavaScript脚本，发现var_0、var_1、var_2猜测是ASCII码，</p>
+<p><img src="/img/2026-qingcen-web21.png" srcset="/img/loading.gif" lazyload><br>发现var_0解码后，是QCCTF_VIP_2026。</p>
+<p><img src="/img/2026-qingcen-web22.png" srcset="/img/loading.gif" lazyload><br>得到凭证里flag。</p>
+<h2 id="BASIC-5题解"><a href="#BASIC-5题解" class="headerlink" title="BASIC-5题解"></a>BASIC-5题解</h2><p><img src="/img/2026-qingcen-web23.png" srcset="/img/loading.gif" lazyload><br>网页中需要输入计算正确答案后，加1分并且做满<strong>1000分</strong>，这里我有两种，一种通过<strong>控制台</strong>、另一种<strong>burp抓包</strong>。</p>
+<p>F12找到源代码中的<strong>main.js</strong>，里面内容是构造1000分的加法计算，判断得到flag。</p>
+<h3 id="javascript脚本"><a href="#javascript脚本" class="headerlink" title="javascript脚本"></a>javascript脚本</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 自动答题 - 漫长</span><br><br><span class="hljs-comment">// 复现原有函数</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">randomInt</span>(<span class="hljs-params">min, max</span>) &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * (max - min + <span class="hljs-number">1</span>)) + min;<br>&#125;<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">generateQuestion</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">const</span> op = <span class="hljs-title function_">randomInt</span>(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>) ? <span class="hljs-string">&#x27;+&#x27;</span> : <span class="hljs-string">&#x27;-&#x27;</span>;<br>  <span class="hljs-keyword">let</span> a, b, answer;<br>  <span class="hljs-keyword">if</span> (op === <span class="hljs-string">&#x27;+&#x27;</span>) &#123;<br>    a = <span class="hljs-title function_">randomInt</span>(<span class="hljs-number">1</span>, <span class="hljs-number">99</span>);<br>    b = <span class="hljs-title function_">randomInt</span>(<span class="hljs-number">1</span>, <span class="hljs-number">99</span>);<br>    answer = a + b;<br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    a = <span class="hljs-title function_">randomInt</span>(<span class="hljs-number">10</span>, <span class="hljs-number">99</span>);<br>    b = <span class="hljs-title function_">randomInt</span>(<span class="hljs-number">1</span>, a - <span class="hljs-number">1</span>);<br>    answer = a - b;<br>  &#125;<br>  <span class="hljs-keyword">return</span> &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">`<span class="hljs-subst">$&#123;a&#125;</span> <span class="hljs-subst">$&#123;op&#125;</span> <span class="hljs-subst">$&#123;b&#125;</span> = ?`</span>, <span class="hljs-attr">answer</span>: answer &#125;;<br>&#125;<br><br><span class="hljs-comment">// 自动答题逻辑</span><br><span class="hljs-keyword">let</span> currentScore = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">const</span> answerInput = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;answer-input&#x27;</span>);<br><span class="hljs-keyword">const</span> submitBtn = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;submit-answer-btn&#x27;</span>);<br><span class="hljs-keyword">const</span> claimBtn = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;claim-btn&#x27;</span>);<br><span class="hljs-keyword">const</span> scoreSpan = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;score-num&#x27;</span>);<br><span class="hljs-keyword">const</span> progressBar = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;progress-bar&#x27;</span>);<br><br><span class="hljs-comment">// 自动答一题</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">autoAnswer</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-comment">// 解析当前题目</span><br>  <span class="hljs-keyword">const</span> qText = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;question-text&#x27;</span>).<span class="hljs-property">textContent</span>;<br>  <span class="hljs-keyword">const</span> [aStr, op, bStr] = qText.<span class="hljs-title function_">split</span>(<span class="hljs-string">&#x27; &#x27;</span>);<br>  <span class="hljs-keyword">const</span> a = <span class="hljs-built_in">parseInt</span>(aStr, <span class="hljs-number">10</span>);<br>  <span class="hljs-keyword">const</span> b = <span class="hljs-built_in">parseInt</span>(bStr, <span class="hljs-number">10</span>);<br>  <span class="hljs-keyword">const</span> answer = op === <span class="hljs-string">&#x27;+&#x27;</span> ? a + b : a - b;<br><br>  <span class="hljs-comment">// 填入答案并提交</span><br>  answerInput.<span class="hljs-property">value</span> = answer;<br>  submitBtn.<span class="hljs-title function_">click</span>();<br><br>  <span class="hljs-comment">// 更新分数</span><br>  currentScore = <span class="hljs-built_in">parseInt</span>(scoreSpan.<span class="hljs-property">textContent</span>, <span class="hljs-number">10</span>);<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`当前分数: <span class="hljs-subst">$&#123;currentScore&#125;</span>/1000`</span>);<br><br>  <span class="hljs-comment">// 刷到1000分自动领flag</span><br>  <span class="hljs-keyword">if</span> (currentScore &gt;= <span class="hljs-number">1000</span>) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;✅ 分数达标，自动领取flag&#x27;</span>);<br>    claimBtn.<span class="hljs-title function_">click</span>();<br>    <span class="hljs-keyword">return</span>;<br>  &#125;<br><br>  <span class="hljs-comment">// 延迟下一题，避免请求过快</span><br>  <span class="hljs-built_in">setTimeout</span>(autoAnswer, <span class="hljs-number">100</span>);<br>&#125;<br><br><span class="hljs-comment">// 启动自动答题</span><br><span class="hljs-title function_">autoAnswer</span>();<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 直接构造加密后的1000分数据</span><br><span class="hljs-keyword">const</span> realData = <span class="hljs-title function_">btoa</span>(<span class="hljs-built_in">unescape</span>(<span class="hljs-built_in">encodeURIComponent</span>(<span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(&#123; <span class="hljs-attr">score</span>: <span class="hljs-number">1000</span> &#125;))));<br><br><span class="hljs-title function_">fetch</span>(<span class="hljs-string">&#x27;/claim&#x27;</span>, &#123;<br>  <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;POST&#x27;</span>,<br>  <span class="hljs-attr">headers</span>: &#123; <span class="hljs-string">&#x27;Content-Type&#x27;</span>: <span class="hljs-string">&#x27;application/json&#x27;</span> &#125;,<br>  <span class="hljs-attr">body</span>: <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(&#123; <span class="hljs-attr">data</span>: realData &#125;)<br>&#125;)<br>.<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">r</span> =&gt;</span> r.<span class="hljs-title function_">json</span>())<br>.<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">r</span> =&gt;</span> &#123;<br>  <span class="hljs-keyword">if</span> (!r.<span class="hljs-property">data</span>) <span class="hljs-keyword">return</span> <span class="hljs-title function_">alert</span>(<span class="hljs-string">&#x27;失败：&#x27;</span> + (r.<span class="hljs-property">error</span> ?? <span class="hljs-string">&#x27;未知错误&#x27;</span>));<br>  <span class="hljs-keyword">const</span> res = <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">parse</span>(<span class="hljs-built_in">decodeURIComponent</span>(<span class="hljs-built_in">escape</span>(<span class="hljs-title function_">atob</span>(r.<span class="hljs-property">data</span>))));<br>  <span class="hljs-keyword">if</span> (res.<span class="hljs-property">flag</span>) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;%c🎉 FLAG 已拿到！&#x27;</span>, <span class="hljs-string">&#x27;font-size:16px;color:green&#x27;</span>);<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(res.<span class="hljs-property">flag</span>);<br>    <span class="hljs-title function_">alert</span>(<span class="hljs-string">&#x27;FLAG:\n&#x27;</span> + res.<span class="hljs-property">flag</span>);<br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-title function_">alert</span>(<span class="hljs-string">&#x27;提示：&#x27;</span> + res.<span class="hljs-property">message</span>);<br>  &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<p>以上是我通过<strong>豆包</strong>生成的<strong>JavaScript</strong>代码，第一种就是漫长的<strong>自动答题</strong>，第二种就是<strong>构造1000分</strong>进行替换获取flag。</p>
+<h3 id="burp抓包"><a href="#burp抓包" class="headerlink" title="burp抓包"></a>burp抓包</h3><p><img src="/img/2026-qingcen-web24.png" srcset="/img/loading.gif" lazyload><br>发现data数据是一个<strong>base64编码的数据</strong>，我们将它解码得到：{“score”:1}，这么一来，就发现是通过键值对<strong>base64编码</strong>后传递给对方，通过对方解码并返回是否是1000分。</p>
+<p><img src="/img/2026-qingcen-web25.png" srcset="/img/loading.gif" lazyload><br>将{“score”:1000}base64编码后得到eyJzY29yZSI6MTAwMH0&#x3D;传递给data参数。</p>
+<p><img src="/img/2026-qingcen-web26.png" srcset="/img/loading.gif" lazyload><br>发送请求后，对方响应data数据，也是一个base64，我们将它解码一下。</p>
+<p><img src="/img/2026-qingcen-web27.png" srcset="/img/loading.gif" lazyload><br>解码后得到flag。</p>
+<h2 id="BASIC-6题解"><a href="#BASIC-6题解" class="headerlink" title="BASIC-6题解"></a>BASIC-6题解</h2><p><img src="/img/2026-qingcen-web28.png" srcset="/img/loading.gif" lazyload><br>页面中什么都没有，我在源代码里也没有找到相关重点。</p>
+<p><img src="/img/2026-qingcen-web29.png" srcset="/img/loading.gif" lazyload><br>发现网络中当前网页的标头中的响应标头有一个x-flag，找到了flag。</p>
+<h2 id="BASIC-7题解"><a href="#BASIC-7题解" class="headerlink" title="BASIC-7题解"></a>BASIC-7题解</h2><p><img src="/img/2026-qingcen-web30.png" srcset="/img/loading.gif" lazyload><br>这里一个拼图，那么我们将图片拼好并提交。</p>
+<p><img src="/img/2026-qingcen-web31.png" srcset="/img/loading.gif" lazyload><br>发现页面中没有flag，那么通过抓包查看一下参数有哪些。</p>
+<p><img src="/img/2026-qingcen-web32.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/2026-qingcen-web33.png" srcset="/img/loading.gif" lazyload><br>有一个csrf参数值，那么在拼图的源代码里有一个csrf，那么在抓包看一下。</p>
+<p><img src="/img/2026-qingcen-web34.png" srcset="/img/loading.gif" lazyload><br>将拼好图提交并抓包，请求后发现Location参数对应下一次请求的文件，那么我们修改一下请求文件。</p>
+<p><img src="/img/2026-qingcen-web35.png" srcset="/img/loading.gif" lazyload><br>再次请求之后，响应的数据是flag，那么得到了flag。</p>
+<h2 id="BASIC-8题解"><a href="#BASIC-8题解" class="headerlink" title="BASIC-8题解"></a>BASIC-8题解</h2><p><img src="/img/2026-qingcen-web36.png" srcset="/img/loading.gif" lazyload><br>该题目的页面是什么都没有，但具我所知，利用.phps来查看</p>
+<p><img src="/img/2026-qingcen-web38.png" srcset="/img/loading.gif" lazyload><br>发现最后有一个参数判断，意思是get请求参数?a 如果不等于这个值返回网站建设……，如果等于就返回&#x2F;flag文件读取的内容。</p>
+<p><img src="/img/2026-qingcen-web37.png" srcset="/img/loading.gif" lazyload><br>直接在地址栏后加上?a&#x3D;QCyYdS回车，就得到flag。</p>
+<h2 id="BASIC-9题解"><a href="#BASIC-9题解" class="headerlink" title="BASIC-9题解"></a>BASIC-9题解</h2><p><img src="/img/2026-qingcen-web39.png" srcset="/img/loading.gif" lazyload><br>该题目介绍信息收集以及爬虫协议的三个考点，<strong>index.phps、robots.txt、sitemap.xml</strong>介绍。</p>
+<p><img src="/img/2026-qingcen-web40.png" srcset="/img/loading.gif" lazyload><br>直接在地址栏靶机后输入<strong>robots.txt</strong>，发现一个qcq.php文件。</p>
+<p><img src="/img/2026-qingcen-web41.png" srcset="/img/loading.gif" lazyload><br>访问qcq.php，得到flag。</p>
+<h2 id="BASIC-10题解"><a href="#BASIC-10题解" class="headerlink" title="BASIC-10题解"></a>BASIC-10题解</h2><p><img src="/img/2026-qingcen-web42.png" srcset="/img/loading.gif" lazyload><br>页面中什么都没有，通过dirb扫描。</p>
+<p><img src="/img/2026-qingcen-web43.png" srcset="/img/loading.gif" lazyload><br>扫描后，发现有一个sitemap.xml访问一下。</p>
+<p><img src="/img/2026-qingcen-web44.png" srcset="/img/loading.gif" lazyload><br>发现页面中，有一个<a target="_blank" rel="noopener" href="http://localhost/wqw.php%E5%9C%B0%E5%9D%80%EF%BC%8C%E4%BF%AE%E6%94%B9url">http://localhost/wqw.php地址，修改url</a> 访问&#x2F;wqw.php页面。</p>
+<p><img src="/img/2026-qingcen-web45.png" srcset="/img/loading.gif" lazyload><br>响应的内容无法查看，不是admin用户，那么通过burp抓包修改一下。</p>
+<p><img src="/img/2026-qingcen-web46.png" srcset="/img/loading.gif" lazyload><br>将cookie中user参数值修改为admin，在右边查找flag。</p>
+<h2 id="BASIC-11题解"><a href="#BASIC-11题解" class="headerlink" title="BASIC-11题解"></a>BASIC-11题解</h2><p><img src="/img/2026-qingcen-web51.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/2026-qingcen-web52.png" srcset="/img/loading.gif" lazyload><br>该页面有一个robots，点击后发现有一个&#x2F;flag.php文件，进行访问。</p>
+<p><img src="/img/2026-qingcen-web53.png" srcset="/img/loading.gif" lazyload><br>访问后，显示的是假的flag。</p>
+<p><img src="/img/2026-qingcen-web54.png" srcset="/img/loading.gif" lazyload><br>这道题，本人也不知道怎么找到flag在哪！直接在地址栏后输入&#x2F;fl4g.php。</p>
+<h2 id="BASIC-12题解"><a href="#BASIC-12题解" class="headerlink" title="BASIC-12题解"></a>BASIC-12题解</h2><p><img src="/img/2026-qingcen-web47.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/2026-qingcen-web48.png" srcset="/img/loading.gif" lazyload><br>访问该页面，点击卡片发现地址栏后面携带着?id&#x3D;参数，那么这里有可能是爆破id。</p>
+<p><img src="/img/2026-qingcen-web49.png" srcset="/img/loading.gif" lazyload><br>抓包后，选择intruder，在id&#x3D;值选择payload，选择数值1-1000并攻击。</p>
+<p><img src="/img/2026-qingcen-web50.png" srcset="/img/loading.gif" lazyload><br>筛选网页中包含flag的，发现存在对应的?id&#x3D;121。</p>
+<h2 id="BASIC-13题解"><a href="#BASIC-13题解" class="headerlink" title="BASIC-13题解"></a>BASIC-13题解</h2><p><img src="/img/2026-qingcen-web55.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/2026-qingcen-web56.png" srcset="/img/loading.gif" lazyload><br>该页面是一个登录页面，F12查看源代码发现默认username是admin。那么密码是需要爆破出正确密码进行登录。</p>
+<p><img src="/img/2026-qingcen-web57.png" srcset="/img/loading.gif" lazyload><br>在intruder配置好，以及密码字典进行爆破。</p>
+<p><img src="/img/2026-qingcen-web58.png" srcset="/img/loading.gif" lazyload><br>筛选得到正确密码：<strong>admin123</strong>以及flag。</p>
+<h2 id="BASIC-14题解"><a href="#BASIC-14题解" class="headerlink" title="BASIC-14题解"></a>BASIC-14题解</h2><p><img src="/img/2026-qingcen-web59.png" srcset="/img/loading.gif" lazyload><br>网页显示.php的源码，里面代码就是，<strong>fopen</strong>读取文件，然后判断参数filename是否为空并且长度小于17才能输出&#x2F;admin_secret.txt文件里面的内容。如果输出?filename&#x3D;&#x2F;admin_secret.txt就直接else<strong>因为等于17长度</strong>，那么如何解决呢？</p>
+<p><img src="/img/2026-qingcen-web60.png" srcset="/img/loading.gif" lazyload><br>这里从刚刚那张图，**$flag &#x3D; fopen(‘&#x2F;admin_secret.txt’, ‘r’);**就已经被执行了，是读取状态存在进程，在Linux有两种方法查看。<strong>第一种是lsof命令，第二种&#x2F;proc&#x2F;self&#x2F;fd&#x2F;5。</strong><br>那么第一种肯定不行，第二种可以，这里不介绍原理，简单理解就是虚拟文件系统存放在内存中当前进程打开某个文件后面加上数字。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Web%E5%AE%89%E5%85%A8/" class="category-chain-item">Web安全</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Web/" class="print-no-link">#Web</a>
+      
+        <a href="/tags/CTF/" class="print-no-link">#CTF</a>
+      
+        <a href="/tags/%E5%85%A5%E9%97%A8/" class="print-no-link">#入门</a>
+      
+        <a href="/tags/%E9%A2%98%E8%A7%A3/" class="print-no-link">#题解</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>青岑web入门-BASIC1-14题解</div>
+      <div>http://example.com/2026/04/14/青岑web入门-BASIC1-14题解/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>放飞自我</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年4月14日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/04/14/bugku-%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94%E9%A2%98%E8%A7%A3%E6%80%9D%E8%B7%AF/" title="bugku-应急响应题解">
+                        <span class="hidden-mobile">bugku-应急响应题解</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>放飞自我</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>小秘密</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/openkounter.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
